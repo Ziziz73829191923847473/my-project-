@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Панель Администратора — Миграционная Служба</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 20px; background: #f4f6f9; }
+        .card { background: white; padding: 20px; border-radius: 8px; box-shadow: 0 2px 5px rgba(0,0,0,0.1); margin-bottom: 20px; }
+        table { width: 100%; border-collapse: collapse; margin-top: 15px; }
+        th, td { border: 1px solid #ddd; padding: 10px; text-align: left; }
+        th { background: #2c3e50; color: white; }
+        .btn-approve { background: #27ae60; color: white; border: none; padding: 6px 12px; cursor: pointer; border-radius: 4px; }
+        .btn-reject { background: #c0392b; color: white; border: none; padding: 6px 12px; cursor: pointer; border-radius: 4px; }
+        .hidden { display: none; }
+    </style>
+</head>
+<body>
+
+    <!-- Форма входа для Админа -->
+    <div id="loginBlock" class="card" style="max-width: 400px; margin: 50px auto;">
+        <h2>Вход для Администратора</h2>
+        <input type="email" id="adminEmail" placeholder="Email админа" style="width:100%; margin-bottom:10px; padding:8px;" value="admin@migration.tj"><br>
+        <input type="password" id="adminPassword" placeholder="Пароль" style="width:100%; margin-bottom:10px; padding:8px;" value="admin123"><br>
+        <button onclick="loginAdmin()" style="width:100%; padding:10px; background:#2c3e50; color:white; border:none; cursor:pointer;">Войти в панель</button>
+    </div>
+
+    <!-- Панель управления (скрыта до авторизации) -->
+    <div id="adminPanel" class="hidden">
+        <div class="card">
+            <h2>Реестр всех поступивших заявок</h2>
+            <p>Права доступа: <b>Только просмотр и смена статусов</b></p>
+            <button onclick="loadAllApplications()" style="padding: 8px 15px;">Обновить список</button>
+        </div>
+
+        <div class="card">
+            <table>
+                <thead>
+                    <tr>
+                        <th>№ Заявки</th>
+                        <th>Заявитель</th>
+                        <th>Контакты</th>
+                        <th>Паспорт</th>
+                        <th>Услуга / Регион</th>
+                        <th>Текущий статус</th>
+                        <th>Действие администратора</th>
+                    </tr>
+                </thead>
+                <tbody id="applicationsTableBody">
+                    <!-- Заявки будут подгружаться сюда -->
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <script>
+        // Вход админа
+        async function loginAdmin() {
+            const email = document.getElementById('adminEmail').value;
+            const password = document.getElementById('adminPassword').value;
+
+            const res = await fetch('http://localhost:3000/api/admin/login', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ email, password })
+            });
+
+            const data = await res.json();
+
+            if (data.success) {
+                document.getElementById('loginBlock').classList.add('hidden');
+                document.getElementById('adminPanel').classList.remove('hidden');
+                loadAllApplications();
+            } else {
+                alert('Ошибка: ' + data.error);
+            }
+        }
+
+        // Загрузка всех заявок из БД
+        async function loadAllApplications() {
+            const res = await fetch('http://localhost:3000/api/admin/applications');
+            const data = await res.json();
+
+            if (data.success) {
+                const tbody = document.getElementById('applicationsTableBody');
+                tbody.innerHTML = '';
+
+                data.applications.forEach(app => {
+                    const row = `
+                        <tr>
+                            <td><b>${app.app_number}</b></td>
+                            <td>${app.applicant_name}</td>
+                            <td>${app.applicant_email}<br>${app.applicant_phone || ''}</td>
+                            <td>${app.passport}</td>
+                            <td>${app.service_type} (${app.region})</td>
+                            <td><b>${app.status}</b></td>
+                            <td>
+                                <button class="btn-approve" onclick="updateStatus(${app.app_id}, 'Принято', 'Ваша заявка успешно одобрена ведомством.')">Принять</button>
+                                <button class="btn-reject" onclick="updateStatus(${app.app_id}, 'Отклонено', 'Заявка отклонена. Проверьте правильность введенных данных.')">Отклонить</button>
+                            </td>
+                        </tr>
+                    `;
+                    tbody.innerHTML += row;
+                });
+            }
+        }
+
+        // Изменение статуса заявки без изменения персональных данных
+        async function updateStatus(appId, newStatus, message) {
+            const res = await fetch(`http://localhost:3000/api/admin/applications/${appId}/status`, {
+                method: 'PATCH',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ status: newStatus, notification: message })
+            });
+
+            const data = await res.json();
+            if (data.success) {
+                alert(`Статус заявки обновлен на "${newStatus}"`);
+                loadAllApplications();
+            } else {
+                alert('Ошибка при обновлении статуса');
+            }
+        }
+    </script>
+</body>
+</html>

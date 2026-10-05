@@ -1,0 +1,65 @@
+/* ─── Настройки темной темы ─── */
+body.dark-theme {
+    /* Фоновые цвета */
+    --bg-color: #010C21;
+    --card-bg: #01204E;
+    --border-color: #012D8D;
+
+    /* Текст — максимально светлый и контрастный */
+    --text-color: #E2E8F0;          /* Светло-серый/голубоватый для обычного текста */
+    --text-muted: #94A3B8;          /* Светлый второстепенный текст */
+    
+    /* Заменяем темно-зеленый на светлый мятный для контраста */
+    --primary-green: #38BDF8;       /* Светло-голубой или мятный (#4ADE80) */
+}
+
+/* ─── Исправление конкретных нечитаемых элементов ─── */
+
+/* Заголовки и логотип в темной теме */
+body.dark-theme h1, 
+body.dark-theme h2, 
+body.dark-theme h3, 
+body.dark-theme .logo-text span,
+body.dark-theme .step.active {
+    color: #FFFFFF !important;
+}
+
+/* Ссылки в меню и кнопка "Подача заявки" */
+body.dark-theme .menu a {
+    color: #E2E8F0;
+}
+
+body.dark-theme .menu a:hover, 
+body.dark-theme .menu a.active {
+    background-color: rgba(255, 255, 255, 0.1);
+    color: #FFFFFF;
+}
+
+/* Лейблы над полями ввода (ФИО, Телефон и т.д.) */
+body.dark-theme label {
+    color: #F1F5F9;
+}
+
+/* Текст внутри полей ввода (input) и placeholder */
+body.dark-theme input, 
+body.dark-theme select, 
+body.dark-theme textarea {
+    background-color: #010C21;
+    border-color: #012D8D;
+    color: #FFFFFF;
+}
+
+body.dark-theme input::placeholder {
+    color: #64748B;
+}
+
+/* Кнопки действия (зеленые кнопки) */
+body.dark-theme .btn, 
+body.dark-theme .primary-button {
+    background-color: #2563EB; /* Яркий синий вместо темного зеленого */
+    color: #FFFFFF;
+}
+
+body.dark-theme .btn:hover {
+    background-color: #1D4ED8;
+}

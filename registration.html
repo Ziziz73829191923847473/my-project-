@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Подача заявки и Регистрация — Миграционная служба РТ</title>
+    <link rel="stylesheet" href="css/registartion.css">
+    <link rel="icon" href="img/gerb.jpg" type="image/x-icon">
+    <link rel="stylesheet" href="css/them.css">
+</head>
+<body>
+
+<header>
+    <div class="logo-text">
+        <span data-lang-key="title">Миграционная служба РТ</span>
+    </div>
+    <nav class="menu">
+        <a href="index.html" data-lang-key="m_home">Главная</a>
+        <a href="registration.html" class="active" data-lang-key="m_reg">Подача заявки</a>
+        <a href="application.html" data-lang-key="m_apps">Личный кабинет</a>
+    </nav>
+    <div>
+        <button class="theme-btn" onclick="toggleTheme()">🌙</button>
+        <button class="lang-btn" onclick="setLang('ru')">RU</button>
+        <button class="lang-btn" onclick="setLang('tj')">TJ</button>
+        <button class="lang-btn" onclick="setLang('en')">EN</button>
+    </div>
+</header>
+
+<div class="container">
+    <div class="card">
+        <div class="step-indicator">
+            <div class="step active" id="st1" data-lang-key="s1">1. Аккаунт заявителя</div>
+            <div class="step" id="st2" data-lang-key="s2">2. Данные для регистрации</div>
+        </div>
+
+        <!-- ФОРМА РЕГИСТРАЦИИ И ПОДАЧИ -->
+        <form id="appForm" onsubmit="processForm(event)">
+            
+            <!-- Шаг 1: Создание учетной записи -->
+            <div id="step1">
+                <h2 style="margin-bottom: 20px; color: var(--primary-green);" data-lang-key="acc_title">Создание личного кабинета</h2>
+                <div class="form-group">
+                    <label data-lang-key="lbl_fullname">ФИО полностью *</label>
+                    <input type="text" id="fullName" placeholder="Иванов Иван Иванович" required>
+                </div>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label data-lang-key="lbl_phone">Номер телефона *</label>
+                        <input type="tel" id="phone" placeholder="+992 900 00 00 00" required>
+                    </div>
+                    <div class="form-group">
+                        <label data-lang-key="lbl_email">Email адрес *</label>
+                        <input type="email" id="email" placeholder="example@mail.tj" required>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label data-lang-key="lbl_pass">Придумайте пароль *</label>
+                    <input type="password" id="password" required>
+                </div>
+                <button type="button" class="btn" onclick="goToStep2()" data-lang-key="btn_next">Далее к заявке ➔</button>
+            </div>
+
+            <!-- Шаг 2: Данные миграционной заявки -->
+            <div id="step2" style="display: none;">
+                <h2 style="margin-bottom: 20px; color: var(--primary-green);" data-lang-key="app_title">Оформление миграционной заявки</h2>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label data-lang-key="lbl_passport">Серия и номер паспорта *</label>
+                        <input type="text" id="passport" placeholder="A0000000" required>
+                    </div>
+                    <div class="form-group">
+                        <label data-lang-key="lbl_service">Вид услуги *</label>
+                        <select id="serviceType" required>
+                            <option value="Временная регистрация">Временная регистрация</option>
+                            <option value="Учет трудовой деятельности">Учет трудовой деятельности</option>
+                            <option value="Визовое продление">Визовое продление</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label data-lang-key="lbl_region">Регион пребывания *</label>
+                    <select id="region" required>
+                        <option value="г. Душанбе">г. Душанбе</option>
+                        <option value="Согдийская область">Согдийская область</option>
+                        <option value="Хатлонская область">Хатлонская область</option>
+                        <option value="ГБАО">ГБАО</option>
+                    </select>
+                </div>
+                <div style="display: flex; gap: 10px;">
+                    <button type="button" class="btn" style="background: var(--text-muted);" onclick="goToStep1()" data-lang-key="btn_back">◄ Назад</button>
+                    <button type="submit" class="btn btn-red" data-lang-key="btn_submit">Зарегистрироваться и отправить ➔</button>
+                </div>
+            </div>
+
+        </form>
+    </div>
+</div>
+
+<script src="js/registration.js"></script>
+<script  src="js/them.js"></script>
+</body>
+</html>

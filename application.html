@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Личный кабинет — Мои заявки</title>
+    <link rel="stylesheet" href="css/application.css">
+    <link rel="icon" href="img/gerb.jpg" type="image/x-icon">
+</head>
+<body>
+
+<header>
+    <div class="logo-text">
+        <span>Миграционная служба РТ</span>
+    </div>
+    <nav class="menu">
+        <a href="index.html">Главная</a>
+        <a href="registration.html">Подача заявки</a>
+        <a href="application.html" class="active">Личный кабинет</a>
+        <button id="logoutBtn" class="btn-logout">Выйти</button>
+    </nav>
+</header>
+
+<div class="dashboard-grid">
+    <!-- Левая колонка: Профиль и Заявки -->
+    <div>
+        <div class="card" id="profileCard">
+            <h2>Профиль Заявителя</h2>
+            <p id="userName" style="color: var(--text-muted); margin-top: 5px;">Загрузка данных...</p>
+        </div>
+
+        <div class="card">
+            <h2>Мои Заявки и Уведомления</h2>
+            <div id="appList">
+                <!-- Сюда подгружаются заявки из LocalStorage -->
+            </div>
+        </div>
+    </div>
+
+    <!-- Правая колонка: AI-Помощник -->
+    <div>
+        <div class="card">
+            <h3 style="color: var(--primary-green); margin-bottom: 10px;">🤖 AI-Консультант</h3>
+            <p style="font-size: 12px; color: var(--text-muted); margin-bottom: 15px;">Задайте любой вопрос по миграционному учету и правилам пребывания.</p>
+            
+            <div class="chat-box">
+                <div class="chat-messages" id="chatMsgs">
+                    <div class="msg bot">Ассалому алейкум! Я ваш онлайн-помощник. Чем могу помочь по поводу вашей заявки или документов?</div>
+                </div>
+                <div class="chat-input">
+                    <input type="text" id="chatInp" placeholder="Напишите вопрос...">
+                    <button onclick="sendMsg()">➔</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="js/application.js"></script>
+</body>
+</html>

@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Миграционная служба Республики Таджикистан</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="icon" href="img/gerb.jpg" type="image/x-icon">
+    <link rel="stylesheet" href="css/them.css">
+</head>
+<body>
+
+<!-- ШАПКА САЙТА -->
+<header class="header">
+    <div class="logo">
+        <span class="tajik-crown">
+            <img src="img/gerb.jpg" alt="Логотип">
+        </span>
+        <div class="logo-text">
+            <span data-lang-key="service_title">Миграционная служба</span>
+            <small data-lang-key="service_sub">Республики Таджикистан</small>
+        </div>
+    </div>
+
+    <nav class="menu">
+        <a href="index.html" class="active" data-lang-key="menu_main">Главная</a>
+        <a href="#history" data-lang-key="menu_history">История</a>
+        <a href="#holidays" data-lang-key="menu_holidays">Праздники</a>
+        <a href="#gallery" data-lang-key="menu_gallery">Галерея</a>
+        <a href="#anthem" data-lang-key="menu_anthem">Гимн</a>
+        <a href="registration.html" class="nav-btn" data-lang-key="menu_register">Подача заявки</a>
+        <a href="application.html" data-lang-key="menu_apps">Заявки</a>
+    </nav>
+
+    <div class="header-controls">
+        <button class="theme-btn" onclick="toggleTheme()">🌙</button>
+        <button class="lang-switch active" onclick="setLanguage('ru')">RU</button>
+        <button class="lang-switch" onclick="setLanguage('tj')">TJ</button>
+        <button class="lang-switch" onclick="setLanguage('en')">EN</button>
+    </div>
+</header>
+
+<main>
+
+    <!-- ГЛАВНЫЙ ИНФОРМАЦИОННЫЙ БАННЕР -->
+    <section class="hero">
+        <div class="hero-content">
+            <p class="subtitle" data-lang-key="hero_subtitle">ГОСУДАРСТВЕННАЯ ИНФОРМАЦИОННАЯ СИСТЕМА</p>
+            <h1>
+                <span data-lang-key="hero_h1_1">Миграционный учет</span> <br>
+                <span data-lang-key="hero_h1_2">Таджикистана</span>
+            </h1>
+            <p class="description" data-lang-key="hero_desc">
+                Официальный информационный портал миграционной службы. Здесь вы можете ознакомиться с историей, законодательством, культурой Республики Таджикистан и подать документы на учет.
+            </p>
+
+            <div class="buttons">
+                <a href="registration.html" class="primary-button" data-lang-key="btn_apply">
+                    Перейти к подаче заявки ➔
+                </a>
+            </div>
+        </div>
+
+        <div class="hero-card">
+            <h2 data-lang-key="info_card_title">Единый реестр</h2>
+            <p data-lang-key="info_card_desc">Электронная система обеспечения прозрачности и удобства миграционного учета в Республике Таджикистан.</p>
+        </div>
+    </section>
+
+    <!-- ИСТОРИЯ -->
+    <section id="history">
+        <div class="section-title">
+            <p data-lang-key="sec_history_sub">ВЕЛИКОЕ НАСЛЕДИЕ</p>
+            <h2 data-lang-key="sec_history_title">История и Культура</h2>
+        </div>
+
+        <div class="history-grid">
+            <div class="history-text">
+                <h3 style="margin-bottom: 15px; color: var(--primary-green);" data-lang-key="hist_h3">
+                    Древняя земля, великие цивилизации и современный Таджикистан
+                </h3>
+                
+                <!-- Блок с прокруткой (Scrollbox) -->
+                <div class="scroll-box"  data-lang-key="hist_text" style="
+                    max-height: 240px; 
+                    overflow-y: auto; 
+                    padding-right: 15px; 
+                    border-left: 3px solid var(--accent-red); 
+                    padding-left: 15px;
+                    margin-bottom: 15px;
+                    font-size: 14px;
+                    line-height: 1.6;
+                ">
+                    <p style="margin-bottom: 12px;">
+                        Таджикистан — страна с глубокими историческими корнями и богатейшим культурным наследием. На этих землях процветали древнейшие государственные образования и цивилизации Центральной Азии: Согдиана, Бактрия, Хорезм и Маргиана. Проходящий через эту территорию Великий шелковый путь способствовал культурному и экономическому обмену между Востоком и Западом.
+                    </p>
+                    <p style="margin-bottom: 12px;">
+                        Особое место занимает эпоха правления династии Саманидов (IX–X века) — золотой век науки, литературы и архитектуры. В этот период сформировался классический таджикский язык и закладывались основы национальной идентичности. Бухара и Самарканд стали крупнейшими мировыми центрами науки, где творили Абу Али ибн Сина (Авиценна), Абуабдулло Рудаки, Фирдоуси и Аль-Бируни.
+                    </p>
+                    <p style="margin-bottom: 12px;">
+                        Сквозь века и иноземные завоевания таджикский народ сумел сохранить свой язык, самобытную культуру и традиции. В XX веке была образована Таджикская ССР, заложившая основу современной индустрии, науки и образования.
+                    </p>
+                    <p>
+                        9 сентября 1991 года была провозглашена независимость Республики Таджикистан. Сегодня суверенный Таджикистан — это динамично развивающееся государство, сочетающее глубокое историческое наследие с современными электронными и цифровыми технологиями.
+                    </p>
+                </div>
+            </div>
+
+            <div>
+                <img src="img/history2.jpg" alt="История" class="content-img">
+            </div>
+        </div>
+    </section>
+
+    <!-- ПРАЗДНИКИ -->
+    <section id="holidays">
+        <div class="section-title">
+            <p data-lang-key="sec_holidays_sub">КАЛЕНДАРЬ</p>
+            <h2 data-lang-key="sec_holidays_title">Государственные Праздники</h2>
+        </div>
+
+        <div class="holidays-grid">
+            <div class="holiday-card">
+                <div class="holiday-day">01 Янв</div>
+                <h3 data-lang-key="h1_title">Новый Год</h3>
+                <p data-lang-key="h1_desc">Традиционный государственный праздник начала года.</p>
+            </div>
+            <div class="holiday-card">
+                <div class="holiday-day">08 Мар</div>
+                <h3 data-lang-key="h7_title">День матери</h3>
+                <p data-lang-key="h7_desc">Официально отмечается в один день с Международным женским днем для почитания женщин и матерей.</p>
+            </div>
+            <div class="holiday-card">
+                <div class="holiday-day">21-24 Мар</div>
+                <h3 data-lang-key="h2_title">Международный Навруз</h3>
+                <p data-lang-key="h2_desc">Праздник весеннего равноденствия и обновления природы.</p>
+            </div>
+            <div class="holiday-card">
+                <div class="holiday-day">09 Мая</div>
+                <h3 data-lang-key="h3_title">День Победы</h3>
+                <p data-lang-key="h3_desc">День памяти и почести героев Великой Отечественной Войны.</p>
+            </div>
+            <div class="holiday-card">
+                <div class="holiday-day">27 Июн</div>
+                <h3 data-lang-key="h4_title">День Национального Единства</h3>
+                <p data-lang-key="h4_desc">Праздник мира и согласия таджикского народа.</p>
+            </div>
+            <div class="holiday-card">
+                <div class="holiday-day">09 Сен</div>
+                <h3 data-lang-key="h5_title">День Независимости</h3>
+                <p data-lang-key="h5_desc">Главный государственный праздник суверенного Таджикистана.</p>
+            </div>
+            <div class="holiday-card">
+                <div class="holiday-day">10 Окт</div>
+                <h3 data-lang-key="h8_title">День фалака</h3>
+                <p data-lang-key="h8_desc">Праздник традиционного таджикского музыкального жанра и культурного наследия.</p>
+            </div>
+            <div class="holiday-card">
+                <div class="holiday-day">06 Ноя</div>
+                <h3 data-lang-key="h6_title">День Конституции</h3>
+                <p data-lang-key="h6_desc">День принятия основного закона Республики Таджикистан.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- ГИМН -->
+    <section id="anthem">
+        <div class="section-title">
+            <p data-lang-key="sec_anthem_sub">СИМВОЛИКА</p>
+            <h2 data-lang-key="sec_anthem_title">Национальный Гимн</h2>
+        </div>
+
+        <div class="audio-card">
+            <audio controls style="width: 100%; margin-bottom: 20px;">
+                <source src="D:\азиза\MigrationSystem\mp3\Eng subs].m4a" type="audio/mpeg">
+            </audio>
+            <p style="font-style: italic;">
+               Диёри арҷуманди мо,<br>
+                Ба бахти мо сари азизи ту баланд бод,<br>
+                Саодати ту, давлати ту бегазанд бод.<br>
+                Зи дурии замонаҳо расидаем,<br>
+                Ба зери парчами ту саф кашидаем,<br>
+                кашидаем<br><br>
+                Зинда бош эй Ватан,<br>
+                Тоҷикистони озоди ман!<br><br>
+                Барои нангу номи мо<br>
+                Ту аз умеди рафтагони мо нишонаӣ,<br>
+                Ту баҳри ворисон ҷаҳони ҷовидонаӣ,<br>
+                Хазон намерасад ба навбаҳори ту,<br>
+                Ки мазраи вафо бувад канори ту,<br>
+                канори ту<br><br>
+                Зинда бош эй Ватан,<br>
+                Тоҷикистони озоди ман!<br><br>
+                Ту модари ягонаӣ,<br>
+                Бақои ту бувад бақои хонадони мо,<br>
+                Мароми ту бувад мароми ҷисму ҷони мо,<br>
+                Зи ту саодати абад насиби мост,<br>
+                Ту ҳастиву ҳама ҷаҳон ҳабиби мост,<br>
+                ҳабиби мост,<br>
+                Зинда бош эй Ватан,<br>
+                Тоҷикистони озоди ман!
+            </p>
+        </div>
+    </section>
+
+    <!-- ГАЛЕРЕЯ -->
+    <section id="gallery">
+        <div class="section-title">
+            <p data-lang-key="sec_gallery_sub">ЖЕМЧУЖИНА ЦЕНТРАЛЬНОЙ АЗИИ</p>
+            <h2 data-lang-key="sec_gallery_title">Галерея</h2>
+        </div>
+
+        <div class="gallery-grid">
+            <img src="img/dushanbe.jpg" class="content-img" alt="Душанбе">
+            <img src="img/pamir.jpg" class="content-img" alt="Памир">
+            <img src="img/iscandarkql.png" class="content-img" alt="Искандеркуль">
+        </div>
+    </section>
+
+</main>
+
+<!-- ФУТЕР С КОНТАКТАМИ -->
+<footer>
+    <div class="footer-container">
+        <div>
+            <h3 style="color: var(--primary-green); margin-bottom: 12px;" data-lang-key="service_title">Миграционная служба</h3>
+            <p style="color: var(--text-muted); font-size: 14px;" data-lang-key="footer_about">
+                Государственная информационная система учета миграции Министерства внутренних дел Республики Таджикистан.
+            </p>
+        </div>
+        <div class="footer-contacts">
+            <h4 style="margin-bottom: 12px;" data-lang-key="footer_contacts">Контакты</h4>
+            <p>📍 г. Душанбе, ул. Л. Толстого, 5</p>
+            <p>📞 +992 (37) 221-00-00</p>
+            <p>📞 +992 (37) 221-12-12 (Горячая линия)</p>
+        </div>
+        <div class="footer-contacts">
+            <h4 style="margin-bottom: 12px;" data-lang-key="footer_info">Информация</h4>
+            <p>✉️ info@migration.tj</p>
+            <p>✉️ support@migration.tj</p>
+            <p>🕒 Пн - Пт: 08:00 - 17:00</p>
+        </div>
+    </div>
+    <div class="footer-bottom">
+        <p>© 2026 Миграционная служба Республики Таджикистан. Все права защищены.</p>
+    </div>
+</footer>
+
+
+<!-- СКТИПТ ТЕМЫ И ЯЗЫКОВ -->
+<script src="js/main.js"></script>
+<script src="js/them.js"></script>
+
+</body>
+</html>
